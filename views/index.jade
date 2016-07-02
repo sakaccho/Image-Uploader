@@ -21,3 +21,5 @@ block content
 					a(href="/edit/#{data._id}")= data.name
 				td= data.mail
 				td= data.memo
+				td
+					a(href="/delete/#{data._id}")= '削除'
