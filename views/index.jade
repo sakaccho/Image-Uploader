@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+
+	form(method='post', action='/')
+		input(type="text", name="name")
+		input(type="text", name="mail")
+		input(type="text", name="memo")
+		input(type="submit")
+
+	table(border='1')
+		tr
+			th Name
+			th Mail
+			th Memo
+		- each data in datas
+			tr
+				td
+					a(href="/edit/#{data._id}")= data.name
+				td= data.mail
+				td= data.memo

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	h1= title
+
+	img(src=file_path, alt=image_path)
+	dl
+		dt オリジナルネーム
+		dd= file_originalname
+		dt アップロード後の名称
+		dd= file_name
+		dt File path
+		dd= file_path
+		dt Mime type
+		dd= file_mimetype
