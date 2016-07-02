@@ -30,6 +30,8 @@ app.use('/users', users);
 // データベース
 app.use('/edit/:id', routes);
 app.post('/update', routes);
+app.use('/delete/:id', routes);
+app.post('/remove', routes);
 // アップロードフォーム
 app.use('/upload', upload_form);
 app.use('/display/:file', display); // img src= のルーティング

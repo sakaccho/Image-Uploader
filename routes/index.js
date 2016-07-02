@@ -88,4 +88,37 @@ router.post('/update', function (req, res, next) {
 	});
 });
 
+router.get('/delete/:id', function (req, res, next) {
+	var id = req.params.id;
+	MyData.findOne({
+		'_id': id
+	}, function (err, doc) {
+		if (err) {
+			console.log(err);
+		}
+		res.render('delete', {
+			title: title,
+			msg: "データの削除",
+			data: doc
+		});
+	});
+});
+
+router.post('/remove', function (req, res, next) {
+	var id = req.body.id;
+	MyData.findOne({
+		'_id': id
+	}, function (err, doc) {
+		if (err) {
+			console.log(err);
+		}
+		doc.remove(function (err) {
+			if (err) {
+				console.log(err);
+			}
+			res.redirect('/');
+		});
+	});
+});
+
 module.exports = router;
